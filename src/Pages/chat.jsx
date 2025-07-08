@@ -5,7 +5,6 @@ import '../style/chat.css';
 import { db, auth } from '../firebase';
 import LoginPromptModal from '../components/popup';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
-import Sidebar from "../components/Sidebar";
 import { getChatMessages } from '../firebaseRead';
 
 const SukoonChatbot = () => {
@@ -168,11 +167,7 @@ const SukoonChatbot = () => {
 
   return (
     <div className="chat-layout">
-      <Sidebar
-        user={auth.currentUser}
-        onSelectChat={setSelectedChatId}
-        onNewChat={handleNewChat}
-      />
+      
 
       <section className="chat">
         {showModal && (
