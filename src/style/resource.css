@@ -1,0 +1,289 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #fff;
+}
+
+/* Section Wrapper */
+.resource-section {
+  width: 100vw;
+  padding: 4rem 1rem 2rem;
+  background: linear-gradient(to right, #2d4943, #573447);
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+}
+
+/* === Shared Section Container === */
+.self-help-container,
+.mindfulness-container,
+.emergency-container,
+.journals-container,
+.therapy-container,
+.books-container,
+.affirmations-container,
+.videos-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1100px;
+  min-height: 480px;
+  width: 100%;
+  padding: 3rem 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.self-help-container { background: linear-gradient(to right, #fefce8, #f0fdfa); }
+.mindfulness-container { background: linear-gradient(to right, #fefce8, #f0fdfa); }
+.emergency-container { background: linear-gradient(to right, #fef2f2, #fff7ed); }
+.journals-container { background: linear-gradient(to right, #ede9fe, #ecfdf5); }
+.therapy-container { background: linear-gradient(to right, #f0fdfa, #fdf2f8); }
+.books-container { background: linear-gradient(to right, #fdf2f8, #f0fdfa); }
+.affirmations-container { background: linear-gradient(to right, #fefce8, #fdf2f8); }
+.videos-container { background: linear-gradient(to right, #ecfdf5, #f0fdfa); }
+
+.self-help-container:hover,
+.mindfulness-container:hover,
+.emergency-container:hover,
+.journals-container:hover,
+.therapy-container:hover,
+.books-container:hover,
+.affirmations-container:hover,
+.videos-container:hover {
+  transform: translateY(-4px);
+}
+
+/* === Shared Image Styling === */
+.self-help-image,
+.mindfulness-image,
+.emergency-image,
+.journals-image,
+.therapy-image,
+.books-image,
+.affirmations-image,
+.videos-image {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.self-help-image img,
+.mindfulness-image img,
+.emergency-image img,
+.journals-image img,
+.therapy-image img,
+.books-image img,
+.affirmations-image img,
+.videos-image img {
+  width: 100%;
+  max-width: 450px;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.self-help-image img:hover,
+.mindfulness-image img:hover,
+.emergency-image img:hover,
+.journals-image img:hover,
+.therapy-image img:hover,
+.books-image img:hover,
+.affirmations-image img:hover,
+.videos-image img:hover {
+  transform: scale(1.03);
+}
+
+/* === Shared Text Content === */
+.self-help-text,
+.mindfulness-text,
+.emergency-text,
+.journals-text,
+.therapy-text,
+.books-text,
+.affirmations-text,
+.videos-text {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* === Shared Title & Description === */
+.resource-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+.resource-description {
+  font-size: 1.15rem;
+  color: #151517;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  padding-left: 1rem;
+}
+
+/* === Shared List Styling === */
+.resource-list {
+  padding-left: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.resource-list li {
+  margin-bottom: 0.4rem;
+  color: #000000ae;
+  list-style: disc;
+}
+
+/* === Shared Button Styling === */
+.self-help-button,
+.mindfulness-button,
+.emergency-button,
+.journals-button,
+.therapy-button,
+.books-button,
+.affirmations-button,
+.videos-button {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.75rem;
+  background: #181e1c;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  align-self: flex-start;
+}
+
+.self-help-button:hover,
+.mindfulness-button:hover,
+.emergency-button:hover,
+.journals-button:hover,
+.therapy-button:hover,
+.books-button:hover,
+.affirmations-button:hover,
+.videos-button:hover {
+  background: #181e1c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(13, 148, 136, 0.4);
+}
+
+/* === Responsive Typography === */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-description,
+  .section-list {
+    font-size: 1rem;
+  }
+
+  .resource-section {
+    padding-top:80px;
+  
+  }
+}
+@media (max-width: 480px) {
+  .resource-section {
+    
+    flex-direction: column;
+    padding-top:80px;
+    height:10;
+  }
+
+  .self-help-container,
+  .mindfulness-container,
+  .emergency-container,
+  .journals-container,
+  .therapy-container,
+  .books-container,
+  .affirmations-container,
+  .videos-container {
+    flex-direction: column;
+    padding: 2rem 0.5rem;
+    gap: 1.5rem;
+    min-height:fit-content;
+  }
+
+  .self-help-image,
+  .mindfulness-image,
+  .emergency-image,
+  .journals-image,
+  .therapy-image,
+  .books-image,
+  .affirmations-image,
+  .videos-image {
+    justify-content: center;
+  }
+
+  .self-help-image img,
+  .mindfulness-image img,
+  .emergency-image img,
+  .journals-image img,
+  .therapy-image img,
+  .books-image img,
+  .affirmations-image img,
+  .videos-image img {
+    max-width: 100%;
+    max-height: 250px;
+    border-radius: 1rem;
+  }
+
+  .self-help-text,
+  .mindfulness-text,
+  .emergency-text,
+  .journals-text,
+  .therapy-text,
+  .books-text,
+  .affirmations-text,
+  .videos-text {
+    padding: 0 0.5rem;
+    text-align: center;
+  }
+
+  .resource-title {
+    font-size: 1.8rem;
+  }
+
+  .resource-description {
+    font-size: 1rem;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .resource-list {
+    padding-left: 1rem;
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .self-help-button,
+  .mindfulness-button,
+  .emergency-button,
+  .journals-button,
+  .therapy-button,
+  .books-button,
+  .affirmations-button,
+  .videos-button {
+    align-self: center;
+    font-size: 0.95rem;
+    padding: 0.7rem 1.4rem;
+  }
+}

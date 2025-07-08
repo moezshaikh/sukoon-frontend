@@ -1,0 +1,87 @@
+/* modal.css */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.7); /* dark overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-card {
+  background: #fefcf8; /* soft cream */
+  border-radius: 1rem;
+  padding: 2.5rem;
+  max-width: 420px;
+  width: 90%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.modal-card h2 {
+  color: #000000; /* emerald tone */
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.modal-card p {
+  color: #444;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.modal-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+/* Login Button */
+.modal-btn.login {
+  background-color: #000000; /* emerald green */
+  color: white;
+}
+
+.modal-btn.login:hover {
+  background-color: #059669;
+}
+
+/* Guest Button */
+.modal-btn.guest {
+  background-color: transparent;
+  border: 2px solid #000000;
+  color: #000000;
+}
+
+.modal-btn.guest:hover {
+  background-color: #ecfdf5;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

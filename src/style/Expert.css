@@ -1,0 +1,361 @@
+/* Base container */
+.consultation-container {
+  padding: 2rem 1.5rem;
+  background: linear-gradient(to bottom right, #bfc6c1, #d1fae5);
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  color: #1f4037;
+  animation: fadeIn 0.8s ease-in;
+  padding-top:80px;
+}
+
+/* Header */
+.header-section {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.header-section h1 {
+  font-size: 2.8rem;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.header-section p {
+  font-size: 1.15rem;
+  color: #2f3031;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.filter-section {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.filter-btn {
+  background-color: #000000;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: #3a7ad9;
+}
+
+.filter-panel {
+  margin-top: 20px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.calendar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calendar-section label {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.dropdown-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.filter-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 180px;
+}
+
+.filter-block label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.filter-block select,
+.search-section input {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  width: 100%;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.filter-block select:focus,
+.search-section input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  background-color: #fff;
+}
+
+.filter-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.clear-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: #e53e3e;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.clear-btn:hover {
+  background-color: #c53030;
+}
+
+
+
+.booking-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* dim background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* on top */
+}
+
+.booking-modal {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: popup 0.3s ease-out;
+}
+.expert-address {
+  margin-top: 10px;
+}
+
+.map-link-btn {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 6px 12px;
+  background-color: #4a90e2;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.map-link-btn:hover {
+  background-color: #357ac8;
+}
+
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-content {
+  text-align: center;
+}
+
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.confirm-btn,
+.cancel-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.confirm-btn {
+  background-color: #10b981; /* emerald green */
+  color: white;
+}
+
+.confirm-btn:hover {
+  background-color: #059669;
+}
+
+.cancel-btn {
+  background-color: #f87171; /* soft red */
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #ef4444;
+}
+
+/* Calendar booking */
+.calendar-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.calendar-section h2 {
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+.date-picker {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #314639;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.date-picker:focus {
+  border-color: #065f46;
+}
+
+/* Expert cards */
+.experts-grid {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 3rem;
+}
+
+.expert-card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.1);
+  padding: 2.5rem;
+  text-align:left;
+  transition: transform 0.2s ease-in-out;
+}
+
+.expert-card:hover {
+  transform: translateY(-5px);
+}
+
+.expert-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 999px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #000000;
+}
+
+.expert-card h3 {
+  color: #000000;
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+}
+
+.title {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #2b2f2e;
+}
+
+.expertise {
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.book-btn {
+  margin-top: 1rem;
+  background-color: #0a0a0a;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.book-btn:hover {
+  background-color: #2c6a44;
+}
+
+/* Booking Note */
+.note {
+  text-align: center;
+  margin-top: 2.5rem;
+  font-size: 0.95rem;
+  color: #000000;
+}
+
+/* Chat icon */
+.floating-chat {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #000000;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 999px;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+.floating-chat:hover {
+  background-color: #059669;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .header-section h1 {
+    font-size: 2rem;
+  }
+
+  .date-picker {
+    width: 100%;
+  }
+
+  .expert-card {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,142 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem 2rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(233, 213, 192, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 700;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #6b5b47;
+}
+
+/* Hamburger button (hidden by default) */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Navigation Links */
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.navbar-links li a {
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.navbar-links li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -3px;
+  background-color: #000;
+  transition: width 0.3s;
+}
+
+.navbar-links li a:hover::after {
+  width: 100%;
+}
+
+.user-dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.user-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+  border-radius: 50%;
+  background-color: #cfd6d6;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 0.8rem;
+  border-radius: 8px;
+  min-width: 180px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.user-email {
+  font-size: 1.0rem;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 0.3rem;
+  text-align: center;
+}
+
+.dropdown-link {
+  text-decoration: none;
+  color: #1f2937;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+.dropdown-link:hover {
+  background-color: #f3f4f6;
+}
+
+.logout-btn {
+  background-color: #ef4444;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 2rem;
+    display: none;
+    text-align:center;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+}
