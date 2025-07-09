@@ -318,3 +318,96 @@
   margin: 0 0.2rem;
   vertical-align: middle;
 }
+/* Small Devices (up to 480px) */
+@media (max-width: 480px) {
+  .sukoon-chat-container {
+    height: 95vh;
+    border-radius: 1rem;
+    box-shadow: none;
+  }
+
+  .sukoon-header {
+    padding: 1rem;
+  }
+
+  .sukoon-title {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .sukoon-messages {
+    padding: 0.5rem;
+    padding-bottom: 100px;
+    height: auto;
+  }
+
+  .sukoon-message {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .sukoon-message-avatar {
+    margin-right: 0.5rem;
+  }
+
+  .sukoon-message-content {
+    max-width: 100%;
+  }
+
+  .sukoon-input-area {
+    padding: 0.75rem;
+  }
+
+  .sukoon-input-container {
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .sukoon-input {
+    font-size: 0.95rem;
+  }
+
+  .sukoon-send-button {
+    padding: 0.4rem 0.7rem;
+  }
+
+  .mode-button {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  .mode-option {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+
+  .chat {
+    padding: 1rem 0.5rem;
+  }
+
+  .sidebar {
+    display: none; /* Hide sidebar on small screens */
+  }
+}
+
+/* Medium Devices (481px - 768px) */
+@media (max-width: 768px) {
+  .sukoon-chat-container {
+    height: 92vh;
+    border-radius: 1rem;
+  }
+
+  .sukoon-title {
+    font-size: 1.5rem;
+  }
+
+  .sukoon-message-content {
+    max-width: 90%;
+  }
+
+  .sukoon-input-container {
+    padding: 0.8rem 1rem;
+  }
+}
