@@ -173,9 +173,10 @@ const SukoonChatbot = () => {
         <div className="sukoon-chat-container">
           <div className="sukoon-container">
             <div className="sukoon-header">
+            <h1>Sukoon</h1>
               <div className="sukoon-header-content">
                 <div className="sukoon-header-text">
-                  <h1 className="sukoon-title">Sukoon</h1>
+                  
                 </div>
               </div>
             </div>
@@ -263,7 +264,7 @@ const SukoonChatbot = () => {
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Share what's on your mind..."
+                  placeholder="What’s on your Mind?"
                   className="sukoon-input"
                   rows="1"
                 />
