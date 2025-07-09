@@ -1,3 +1,4 @@
+// SukoonChatbot.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import { Send, Bot, User, Heart, ArrowDown } from 'lucide-react';
@@ -28,7 +29,6 @@ const SukoonChatbot = () => {
   const messagesEndRef = useRef(null);
   const messagesContainerRef = useRef(null);
 
-  // 🔐 Auth check
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (!user) setShowModal(true);
@@ -36,7 +36,6 @@ const SukoonChatbot = () => {
     return () => unsubscribe();
   }, []);
 
-  // 🔄 Load messages from Firestore
   useEffect(() => {
     const loadChats = async () => {
       const msgs = await getChatMessages(auth.currentUser?.uid);
@@ -49,7 +48,6 @@ const SukoonChatbot = () => {
     ? allMessages.filter(msg => msg.id === selectedChatId)
     : allMessages.slice(-10);
 
-  // 📜 Scroll behavior
   useEffect(() => {
     if (messagesContainerRef.current) {
       messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
@@ -69,7 +67,6 @@ const SukoonChatbot = () => {
     }
   };
 
-  // 💾 Save to Firestore
   const saveMessageToFirestore = async (text, sender) => {
     try {
       await addDoc(collection(db, 'messages'), {
@@ -83,7 +80,20 @@ const SukoonChatbot = () => {
     }
   };
 
-  // ✉️ Send message
+  const getSystemPrompt = (selectedMode) => {
+    switch (selectedMode) {
+      case 'therapist':
+        return "You are Sukoon, a compassionate AI therapist. Respond with empathy, calmness, and kindness. Keep responses short, thoughtful, and emotionally supportive. Use open-ended questions. Avoid giving direct advice or diagnosing.";
+      case 'motivator':
+        return "You are Sukoon, a motivating coach. Respond with positivity and encouragement. Use empowering language. Keep responses short but energetic. Inspire the user to take small steps forward.";
+      case 'listener':
+        return "You are Sukoon, a silent and gentle listener. Acknowledge feelings with simple affirmations. Be patient and let the user express. Don’t give advice — just reflect emotions back kindly.";
+      case 'default':
+      default:
+        return "You are Sukoon, a compassionate AI therapist. Respond with empathy, calmness, and kindness. Use short messages and reflect feelings back gently.";
+    }
+  };
+
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
 
@@ -102,9 +112,9 @@ const SukoonChatbot = () => {
     const systemPrompt = getSystemPrompt(mode);
 
     try {
-      const response = await axios.post('http://localhost:5000/chat', {
-        userMessage: inputMessage,
-        systemPrompt: systemPrompt
+      const response = await axios.post('https://sukoon-backend-2rmu.onrender.com/chat', {
+        userMessage: userMessage.text,
+        systemPrompt
       });
 
       const botMessage = {
@@ -131,21 +141,6 @@ const SukoonChatbot = () => {
     }
   };
 
-  // 🧠 Prompt based on mode
-  const getSystemPrompt = (selectedMode) => {
-    switch (selectedMode) {
-      case 'therapist':
-        return "You are Sukoon, a compassionate AI therapist. Respond with empathy, calmness, and kindness. Keep responses short, thoughtful, and emotionally supportive. Use open-ended questions. Avoid giving direct advice or diagnosing.";
-      case 'motivator':
-        return "You are Sukoon, a motivating coach. Respond with positivity and encouragement. Use empowering language. Keep responses short but energetic. Inspire the user to take small steps forward.";
-      case 'listener':
-        return "You are Sukoon, a silent and gentle listener. Acknowledge feelings with simple affirmations. Be patient and let the user express. Don’t give advice — just reflect emotions back kindly.";
-      default:
-        return "";
-    }
-  };
-
-  // ✅ "New Chat" handler (reset local UI)
   const handleNewChat = () => {
     setMessages([
       {
@@ -167,8 +162,6 @@ const SukoonChatbot = () => {
 
   return (
     <div className="chat-layout">
-      
-
       <section className="chat">
         {showModal && (
           <LoginPromptModal
@@ -237,30 +230,30 @@ const SukoonChatbot = () => {
 
                   {showModeDropdown && (
                     <div className="mode-dropdown">
-                      <div
-                        className={`mode-option ${mode === 'default' ? 'active' : ''}`}
-                        onClick={() => { setMode('default'); setShowModeDropdown(false); }}
-                      >
-                        🆓 Daily Chat (Free)
-                      </div>
                       <div className="mode-label">Premium Modes</div>
                       <div
                         className={`mode-option ${mode === 'therapist' ? 'active' : ''}`}
                         onClick={() => { setMode('therapist'); setShowModeDropdown(false); }}
                       >
-                        🧘 Therapist
+                         Therapist
                       </div>
                       <div
                         className={`mode-option ${mode === 'motivator' ? 'active' : ''}`}
                         onClick={() => { setMode('motivator'); setShowModeDropdown(false); }}
                       >
-                        💪 Motivator
+                         Motivator
                       </div>
                       <div
                         className={`mode-option ${mode === 'listener' ? 'active' : ''}`}
                         onClick={() => { setMode('listener'); setShowModeDropdown(false); }}
                       >
-                        👂 Listener
+                         Listener
+                      </div>
+                      <div
+                        className={`mode-option ${mode === 'default' ? 'active' : ''}`}
+                        onClick={() => { setMode('default'); setShowModeDropdown(false); }}
+                      >
+                        🆓 Daily Chat (Free)
                       </div>
                     </div>
                   )}
